@@ -1,0 +1,20 @@
+<div class="form-group has-feedback" ng-class="{'has-error' : form[fieldName].$invalid}">
+    <label class="control-label" ng-bind="label"></label>
+    <input name="{{fieldName}}" data-type="{{type}}" ng-model="model" class="form-control" ng-required="required" data-ng-minlength="minlength  || undefined">
+
+    <span ng-show="form[fieldName].$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+
+    <div class="" ng-messages="form[fieldName].$error" role="alert">
+        <div ng-message="required" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> {{fieldName}} is required
+        </div>
+
+        <div ng-message="email">
+            email must be in format something@something.com
+        </div>
+        <div ng-message="minlength" class="alert alert-danger">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> please enter at least {{minlength}} letters</div>
+    </div>
+    <!--    {{form[fieldName]}}-->
+</div>
